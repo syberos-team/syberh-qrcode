@@ -40,12 +40,20 @@ LIB_DIR = /data/app-libs/com.syberos.demo
 ```
 
 5、由于qml组件用到了`env.dp()`方法来做适配，所以需要有env对象
-> `src`文件夹下的`env`文件夹，提供了C++文件，拷贝到自己的项目，然后在`App_Workspace.cpp`中注册进去
+> `src`文件夹下的`env`文件夹，提供了C++文件，拷贝到自己的项目，然后在`App_Workspace.cpp`中注册进去，目前是通过qt版本来判断OS是2.1还是4.1
 ```C++
+#include <cenvironment.h>
+#if (QT_VERSION < QT_VERSION_CHECK(5, 6, 0))
 #include "../syberh-qrcode/src/env/senvironment.h"
+#endif
 
-SEnvironment *env = new SEnvironment;
-m_view->rootContext()->setContextProperty("env", env);
+// QT版本大于5.6，选择进入特定的qml页面, qml适配， 266是9860手机的dpi值
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+    CEnvironment::initAppDpi(266);
+#else
+    SEnvironment *env = new SEnvironment;
+    m_view->rootContext()->setContextProperty("env", env);
+#endif
 ```
 
 ## syberh项目如何集成S1手机扫码模块
