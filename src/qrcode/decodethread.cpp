@@ -5,6 +5,10 @@
 #include "cqrcoder.h"
 #include <errno.h>
 #include "qandroidmultimediautils.h"
+#include "gralloc_priv.h"
+#include <gst/egl/egl.h>
+#include <hybris/eglplatformcommon/hybris_nativebufferext.h>
+#include <hybris/eglplatformcommon/nativewindowbase.h>
 #define  BARCODE_IMAGE_WIDTH 450
 #define  BARCODE_IMAGE_HEIGHT 450
 #define  DECODE_TMP_IMAGE_PATH "/tmp/syberosDecodeImage.jpg"
@@ -43,9 +47,12 @@ void DecodeThread::beginDecode(QVideoFrame frame)
         clonedFrame.map(QAbstractVideoBuffer::ReadOnly);
 
         const uchar *bits = clonedFrame.bits();
+        GstEGLImageMemory *mem = (GstEGLImageMemory *) bits;
+        ANativeWindowBuffer *nativeWindowBuffer = (ANativeWindowBuffer*)(mem->client_buffer);
+        private_handle_t *handle = (private_handle_t *)nativeWindowBuffer->handle;
 
         QImage orgImg = QImage(frame.size(), QImage::Format_ARGB32);
-        qt_convert_NV21_to_ARGB32(bits,
+        qt_convert_NV21_to_ARGB32((const uchar*)handle->base,
                                   (quint32 *)orgImg.bits(),
                                   clonedFrame.width(),
                                   clonedFrame.height());

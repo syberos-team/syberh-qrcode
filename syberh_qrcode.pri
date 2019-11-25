@@ -8,6 +8,7 @@ HEADERS += \
     $$PWD/src/qrcode/cqrcoder.h \
     $$PWD/src/qrcode/decodethread.h \
     $$PWD/src/qrcode/decodeworkspace.h \
+    $$PWD/src/qrcode/gralloc_priv.h \
     $$PWD/src/qrcode/multimediautils.h \
     $$PWD/src/qrcode/qandroidmultimediautils.h \
     $$PWD/src/qrcode/qtcamera.h \
@@ -23,6 +24,8 @@ SOURCES += \
     $$PWD/src/qrcode/qtcamera.cpp \
     $$PWD/src/qrcoderegister.cpp
 
+
+PKGCONFIG += gstreamer-egl-0.10 android-headers
 
 LIBS += -L$$PWD/lib -lzxing
 
