@@ -12,7 +12,7 @@ HEADERS += \
     $$PWD/src/qrcode/qandroidmultimediautils.h \
     $$PWD/src/qrcode/qtcamera.h \
     $$PWD/src/qrcode/zxing.h \
-    $$PWD/src/syberhregister.h
+    $$PWD/src/qrcoderegister.h
 
 SOURCES += \
     $$PWD/src/qrcode/cqrcoder.cpp \
@@ -21,7 +21,7 @@ SOURCES += \
     $$PWD/src/qrcode/multimediautils.cpp \
     $$PWD/src/qrcode/qandroidmultimediautils.cpp \
     $$PWD/src/qrcode/qtcamera.cpp \
-    $$PWD/src/syberhregister.cpp
+    $$PWD/src/qrcoderegister.cpp
 
 
 LIBS += -L$$PWD/lib -lzxing

@@ -1,17 +1,18 @@
-#include "syberhregister.h"
 #include <QDebug>
 #include <QQmlContext>
 #include <QQmlEngine>
 
-SyberhRegister::SyberhRegister() {
+#include "qrcoderegister.h"
+
+QrcodeRegister::QrcodeRegister() {
 
 }
 
-SyberhRegister::~SyberhRegister() {
+QrcodeRegister::~QrcodeRegister() {
 
 }
 
-void SyberhRegister::init(QQuickView * m_view) {
+void QrcodeRegister::init(QQuickView * m_view) {
     qmlRegisterType<DecodeWorkSpace>("com.syberos.decodeWorkSpace", 1, 0, "DecodeWorkSpace");
 
     QtCamera *camera = QtCamera::getInstance();
