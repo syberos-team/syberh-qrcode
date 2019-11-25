@@ -11,7 +11,7 @@
 * by Beijing Yuan Xin Technology Co.,Ltd. All rights are reserved.
 */
 
-var rate = 2.0//1.5;//applets.getSizeRatio();
+var rate = 1.5;//applets.getSizeRatio();
 //rate = function(){
 //    var value;
 //    switch(gScreenInfo.density){

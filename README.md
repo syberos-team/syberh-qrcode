@@ -39,6 +39,15 @@ include (./syberh-qrcode/syberh_qrcode.pri)
 LIB_DIR = /data/app-libs/com.syberos.demo
 ```
 
+5、由于qml组件用到了`env.dp()`方法来做适配，所以需要有env对象
+> `src`文件夹下的`env`文件夹，提供了C++文件，拷贝到自己的项目，然后在`App_Workspace.cpp`中注册进去
+```C++
+#include "../syberh-qrcode/src/env/senvironment.h"
+
+SEnvironment *env = new SEnvironment;
+m_view->rootContext()->setContextProperty("env", env);
+```
+
 ## syberh项目如何集成S1手机扫码模块
 1、在项目根目录下的`platforms/syberos/vendor`下删除`syberh-qrcode`文件夹
 
