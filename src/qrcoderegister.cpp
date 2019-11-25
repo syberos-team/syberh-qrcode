@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QtQml>
 
 #include "qrcoderegister.h"
 
