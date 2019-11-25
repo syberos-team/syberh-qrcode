@@ -150,15 +150,15 @@ CPage {
     CTitleBar{
         id:titleBar
         anchors.top: parent.top
-        anchors.topMargin: 48
+        anchors.topMargin: env.dp(48)
         leftItemIcon:"qrc:///res/iconBack.png"
         leftItemBackgroundEnabled: false
-        leftItemSize: Qt.size(20,20)
+        leftItemSize: Qt.size(env.dp(20),env.dp(20))
 
-        spacingBetweenLeftBorderAndLeftItem: 40
+        spacingBetweenLeftBorderAndLeftItem: env.dp(40)
 
-        spacingBetweenLeftItemAndTitleItem: 18
-        titlePixelSize: 40
+        spacingBetweenLeftItemAndTitleItem: env.dp(18)
+        titlePixelSize: env.dp(40)
         titleText: "二维码扫描"
         titleTextColor: "#ffffff"
 
@@ -217,8 +217,8 @@ CPage {
         Image {
             id: scanAreaOut
             source: "qrc:///res/scanAreaOut.png"
-            width: 320
-            height: 320
+            width: env.dp(320)
+            height: env.dp(320)
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
@@ -231,7 +231,7 @@ CPage {
             Image {
                 id: scanLine
                 width:parent.width-2
-                height:9
+                height: env.dp(9)
                 source: "qrc:///res/scanLine.png"
                 fillMode: Image.PreserveAspectFit
                 //anchors.centerIn: parent
@@ -290,15 +290,15 @@ CPage {
         id:cancelButton
         text: "取消"
         textColor: "#ffffff"
-        width: 580
-        height:80
-        pixelSize: 36
+        width: env.dp(580)
+        height: env.dp(80)
+        pixelSize: env.dp(36)
         backgroundComponent: Rectangle{
-            radius: 50
+            radius: env.dp(50)
             color:"#2d56d2"
         }
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 58
+        anchors.bottomMargin: env.dp(58)
         anchors.horizontalCenter: parent.horizontalCenter
         onClicked: {
             popAndClearStatus()

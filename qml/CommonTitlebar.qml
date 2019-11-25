@@ -49,7 +49,7 @@ Item{
             anchors.leftMargin: 10 * UI.rate
             anchors.verticalCenter: parent.verticalCenter
             width: visible? sourceSize.width * 0.4 * UI.rate : 0
-            height: sourceSize.height * 0.4 * UI.rate
+            height: sourceSize.height * 0.4 * UI.rate 
             source: "qrc:/res/nav_return.png"
             fillMode: Image.PreserveAspectFit
             opacity: mouse.pressed ? 0.5 : 1
@@ -71,7 +71,7 @@ Item{
         elide: Text.ElideRight
         horizontalAlignment: Text.AlignHCenter
         color:"#ffffff"
-        font.pixelSize: UI.FONT_SIZE_16
+        font.pixelSize: env.dp(UI.FONT_SIZE_16)
     }
     Item{
         id:rightItem
